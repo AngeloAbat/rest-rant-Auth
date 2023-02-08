@@ -19,4 +19,17 @@ router.get('/', async (req, res) => {
     res.json(users)
 })
 
+router.get('/defineCurrentUser', async(req, res) => {
+    try{
+        let user = await User.findOne({
+            where: {
+                userId: req.session.userId
+            }
+        })
+        res.json(user)
+    } catch{
+        
+    }
+})
+
 module.exports = router

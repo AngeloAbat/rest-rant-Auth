@@ -10,7 +10,7 @@ const cookieSession = require('cookie-session')
 app.use(cookieSession({
     name: "session",
     keys: [process.env.SESSION_SECRET],
-    maxAge: 1000 * 15 
+    maxAge: 1000 * 60 * 60 
 }))
 app.use(cors({
     origin: 'http://localhost:3000',
@@ -27,8 +27,9 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/places', require('./controllers/places'))
 app.use('/users', require('./controllers/users'))
 app.use('/authentication', require('./controllers/authentication'))
+app.use('/defineCurrentUser', require('./controllers/defineCurrentUser'))
 
 // Listen for Connections
 app.listen(process.env.PORT, () => {
     console.log(`Listening on ${process.env.PORT}`)
-})
+})  
