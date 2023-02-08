@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/places/new" component={NewPlaceForm} />
           <Route exact path="/places/:placeId" component={PlaceDetails} />
           <Route exact path="/places/:placeId/edit" component={EditPlaceForm} />
-          <Route path="/" component={Error404} />
+          <Route path="*" component={Error404} />
         </Switch>
       </BrowserRouter>
     </CurrentUserProvider>
